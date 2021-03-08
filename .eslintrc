@@ -13,7 +13,10 @@
     "quotes": "off",
     "comma-dangle": "off",
     "eol-last": "off",
-    "require-jsdoc": "off"
+    "require-jsdoc": "off",
+    "operator-linebreak": "off",
+    "no-trailing-spaces": "off",
+    "padded-blocks": "off"
   },
   "extends": ["eslint:recommended", "google"]
 }
