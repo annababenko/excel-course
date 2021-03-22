@@ -4,6 +4,7 @@ class Dom {
             ? document.querySelector(selector)
             : selector
     }
+
     html(html) {
         if (typeof html === "string") {
             this.$el.innerHTML = html;
@@ -11,6 +12,7 @@ class Dom {
         }
         return this.$el.outerHTML.trim();
     }
+
     clear() {
         this.html("");
         return this;
@@ -36,8 +38,32 @@ class Dom {
         }
         return this;
     }
+
+    get data() {
+        return this.$el.dataset;
+    }
+
+    closest(selector) {
+        return $(this.$el.closest(selector));
+    }
+
+    getCoords() {
+        return this.$el.getBoundingClientRect();
+    }
+
+    findAll(selector) {
+        return this.$el.querySelectorAll(selector);
+    }
+
+    css(styles = {}) {
+        Object
+            .keys(styles)
+            .forEach(key => {
+                this.$el.style[key] = styles[key];
+            })
+    }
 }
-// event target
+
 export function $(selector) {
     return new Dom(selector);
 }
